@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    width: 192px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+header {
+    background-color: #FEFAFA; /* Define a cor de fundo do cabeçalho */
+    display: flex; /* Coloca os elementos do cabeçalho lado a lado */
+    align-items: center; /* Centraliza os elementos verticalmente */
+    justify-content: center; /* Mantém logo, menu e botões próximos */
+    min-height: 72px; /* Mantém a altura mínima e permite crescer se houver quebra de linha */
+    height: auto; /* Evita que o botão fique encoberto em telas menores */
+    padding: 12px clamp(20px, 3vw, 80px); /* Ajusta o espaço lateral à largura da tela */
+    box-sizing: border-box; /* Inclui o padding no tamanho do cabeçalho */
+    gap: 24px; /* Define o espaço entre logo, menu e botões */
+    flex-wrap: wrap; /* Permite que os elementos passem para outra linha quando faltar espaço */
+
+    & .logo {
+        cursor: pointer; /* Mostra uma mão ao passar o mouse sobre a logo */
+    }
+
+    & .usuario {
+        display: grid;
+        place-items: center;
+        flex: 0 0 34px;
+        height: 34px;
+        border: none;
+        border-radius: 50%;
+        background: #002aff;
+        cursor: pointer;
+
+        & img {
+            display: block;
+            width: 20px;
+            height: 22px;
+            object-fit: contain;
+        }
+    }
+
+    & .cadastro {
+        flex-shrink: 0;
+        width: 161px;
+        height: 37px;
+        background: #5f69bf;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+            background: #4e58a6;
+        }
+    }
+
+    & .usuario:focus-visible,
+    & .cadastro:focus-visible {
+        outline: 2px solid #5f69bf;
+        outline-offset: 4px;
+    }
+}
+
+nav ul {
+    display: flex; /* Coloca os itens do menu lado a lado */
+    flex-wrap: wrap; /* Permite quebrar a linha quando faltar espaço */
+    gap: 12px; /* Faz o menu caber também com o navegador em 100% */
+    list-style-type: none; /* Remove as bolinhas da lista */
+    padding: 0; /* Remove o espaçamento interno padrão */
+    margin: 0; /* Remove a margem padrão */
+
+    & a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-block; /* Permite aumentar cada link individualmente */
+        padding: 10px; /* Mantém o tamanho do link igual antes e durante o hover */
+        border: none; /* Remove qualquer borda do link */
+        outline: none; /* Remove o contorno preto de foco */
+        border-radius: 10px; /* Arredonda o fundo do hover */
+        transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease; /* Suaviza o efeito */
+
+        &:hover {
+            cursor: pointer; /* Mostra uma mão sobre o link */
+            color: white; /* Deixa o texto branco */
+            background-color: #5f69bf; /* Deixa o fundo roxo */
+            transform: scale(1.1); /* Aumenta apenas o link sem empurrar os outros */
+        }
+
+        &:focus-visible {
+            outline: 2px solid #5f69bf; /* Destaca o link em roxo ao navegar pelo teclado */
+            outline-offset: 2px; /* Afasta o contorno do texto */
+        }
+    }
+}
+
+
+main {
+    width: 78%;
+    max-width: 1138px;
+    margin: 160px auto 0;
+    display: grid;
+grid-template-columns: 1fr 1fr;
+align-items: center;
+column-gap: 40px;
+
+& h1,
+& p {
+    grid-column: 1;
+}
+
+    & h1 {
+        max-width: 447px;
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 1.2;
+    }
+
+    & p {
+        max-width: 437px;
+        margin-top: 100px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+        & img {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
